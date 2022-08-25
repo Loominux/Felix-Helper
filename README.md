@@ -69,3 +69,6 @@ This Example here is from the `roles.js` that is in this Repository.
 - `EmoteName: ""`: contains the name of the Emote, in case of a normal Emote the name is just the Emote, if it is a custom emote is has to contain the Emote name
 - `EmoteID: ""`: only has to be used if `CustomEmote` is set to `true`, contains the ID of the custom emote
 - `CustomEmote: true/false`: Has to be used when using any emotes, set to `true` if you want to use Discord custom emotes, or to `false` when just default emotes are used.
+
+
+# Test Commit
