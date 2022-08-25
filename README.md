@@ -70,4 +70,4 @@ This Example here is from the `roles.js` that is in this Repository.
 - `EmoteID: ""`: only has to be used if `CustomEmote` is set to `true`, contains the ID of the custom emote
 - `CustomEmote: true/false`: Has to be used when using any emotes, set to `true` if you want to use Discord custom emotes, or to `false` when just default emotes are used.
 
-# Test
+# new Test 
