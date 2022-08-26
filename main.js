@@ -46,7 +46,6 @@ bot.on("error", function (err, shard){
 
 bot.connect();
 
-//Some Magic
 creator.withServer(new GatewayServer((handler) => bot.on('rawWS', (event) => {if (event.t === 'INTERACTION_CREATE') handler(event.d);})));
 
 //When bot is ready log
@@ -57,7 +56,7 @@ bot.on("ready", async function(){
 //If someone send a message
 bot.on("messageCreate", async function (message){
 
-    //run all the code when someone send 7sfinit
+    //run all the code when someone sends 7selfroleinit
     if(message.content == "7selfroleinit" && message.member.roles.indexOf(config.initRole) != -1){
 
         //first create a small info message
@@ -73,7 +72,7 @@ bot.on("messageCreate", async function (message){
                     {
                         name: "About the Bot",
                         value: "This Bot is created by <@292221048987058176>, feel free to send some feedback for better functionality or if you found a bug in <#824833759365955594>." +
-                            "\nThis bot is available as a GitLab Repository, if you are a curious Nerd you can check out the Code [here](https://gitlab.com/Qevra/felix-helper)."
+                            "\nThis bot is available as a GitLab Repository, if you are a curious Nerd you can check out the Code [here](https://gitlab.com/dev.paulweber/felix-helper)."
                     }
                 ],
                 color: 0xbd93f9
@@ -86,7 +85,7 @@ bot.on("messageCreate", async function (message){
 
             let content;
 
-            //Create stuff for the content
+            //Create a basic embed
             if(roles[k][0].ShowRoles == false)
             {
                 console.log(roles[k][0].title, ": false\n");
@@ -101,7 +100,7 @@ bot.on("messageCreate", async function (message){
                 }
             }
 
-            //if ShowRoles is true, the message will contain a list of the Roles (with the @ Stuff, but without pinging it)
+            //if ShowRoles is true, the embed will contain a list of the Roles (with mentions, but without pinging them)
             else if(roles[k][0].ShowRoles == true){
 
                 console.log(roles[k][0].title, ": true\n");
@@ -121,7 +120,7 @@ bot.on("messageCreate", async function (message){
                 }
 
 
-                //go through the roles in the category and list them with @
+                //go through the roles in the category and add them with mention to embed.fields.value
                 for(i in roles[k]){
 
                     if(i > 0){
@@ -140,16 +139,16 @@ bot.on("messageCreate", async function (message){
             rows = Math.ceil((roles[k].length -1) / 5);
 
             //Fancy stuff because it is prettier when two rows are about the same length
-            //devide total length by rows, round up both of them
+            //divide total length by rows, round up both of them
 
             rowlength = Math.ceil((roles[k].length -1) / rows)
 
-            //Start with element 1, becasue 0 hold all the category information
+            //Start with element 1, because 0 holds all the category information
             let x = 1;
 
             for(let i = 0; i < rows; i++){
 
-                //push the basic stuff for the buttons
+                //push the base contend for the buttons
                 content.components.push(
                     {
                         type: 1,
