@@ -18,7 +18,7 @@ Here are examples what the Messages with Buttons looks like and what the Profile
 
 
 
-## NoteJS Stuff i used
+## NoteJS Stuff I used
 
 ```
 npm install eris
@@ -47,7 +47,7 @@ All the contents and setting of the embeds and the buttons are in `role.js`, the
 ### Role Group
 
 Every group is an object array.
-Element 0 always contains the settings for the group, what the buttons and the Embed looks like.
+Element 0 always contains the settings for the group, what the buttons and the Embed look like.
 The rest contains the role names, IDs and other stuff. 
 
 #### Group Settings
