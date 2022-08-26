@@ -34,9 +34,10 @@ module.exports = function (){
         title: "Gender",
         description: "Pick one two or even more genders you are most comfortable with and show people how to refer to you",
         color: 0xbd93f9,
-        ShowRoles: false,
+        ShowRoles: true,
         RoleID: "636150151672496148",
         ShowEmotes: true,
+        FieldName: "An overview, what all the roles look like:",
         AllowMultiple: true
     },     //Gender (Category Role)
         {CustomEmote: false, name: "Men",           EmoteName: "🚹",   RoleID: "636151235912663041"},     //Men

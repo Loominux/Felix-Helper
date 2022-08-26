@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "eris": "^0.16.1",
-    "slash-create": "^5.5.3"
+    "slash-create": "^5.8.0"
   }
 }

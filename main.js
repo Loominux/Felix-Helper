@@ -1,7 +1,27 @@
 const Eris = require("eris");
 const config = require("./config.js");
 
-const bot = new Eris(config.Token);
+const bot = new Eris(config.Token, {intents: [
+        "all",
+        "allNonPrivileged",
+        "allPrivileged",
+        "directMessages",
+        "directMessageReactions",
+        "directMessageTyping",
+        "guilds",
+        "guildMembers",
+        "guildPresences",
+        "guildBans",
+        "guildEmojisAndStickers",
+        "guildIntegrations",
+        "guildInvites",
+        "guildVoiceStates",
+        "guildPresences",
+        "guildMessages",
+        "guildMessageReactions",
+        "guildMessageTyping",
+        "guildWebhooks"
+    ]});
 
 const { SlashCreator, GatewayServer, SlashCommand, CommandOptionType } = require('slash-create');
 
@@ -69,6 +89,8 @@ bot.on("messageCreate", async function (message){
             //Create stuff for the content
             if(roles[k][0].ShowRoles == false)
             {
+                console.log(roles[k][0].title, ": false\n");
+
                 content = {
                     embed:{
                         title: roles[k][0].title,
@@ -81,6 +103,9 @@ bot.on("messageCreate", async function (message){
 
             //if ShowRoles is true, the message will contain a list of the Roles (with the @ Stuff, but without pinging it)
             else if(roles[k][0].ShowRoles == true){
+
+                console.log(roles[k][0].title, ": true\n");
+
                 content = {
                     embed:{
                         title: roles[k][0].title,
@@ -95,12 +120,19 @@ bot.on("messageCreate", async function (message){
                     components: []
                 }
 
+
                 //go through the roles in the category and list them with @
-                for(i in roles.color){
+                for(i in roles[k]){
+
                     if(i > 0){
-                        content.embed.fields[0].value +=  "<@&" +roles[k][i].RoleID+ ">\n";
+                        content.embed.fields[0].value += "<@&" +roles[k][i].RoleID+ ">\n";
                     }
+
                 }
+
+                console.log("test 2")
+
+
             }
 
 
