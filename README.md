@@ -4,11 +4,16 @@ Special thanks to Inari, she introduced me to JavaScript and helped me a bit.
 
 Here are examples what the Messages with Buttons looks like and what the Profile will look like.
 
+Example of what roles and categories look like 
+
 ![Profile](Pictures/Profile.png)
 
-![Messages](Pictures/MessagesButtons.png)
+Reaction message from the Bot to you, after you used '/selfroleinit'
 
 ![Selfroleinit](Pictures/Selfroleinit.png)
+![Messages](Pictures/MessagesButtons.png)
+
+Example of the messages from the Bot, after you changed your roles
 
 ![RoleMessages](Pictures/RoleMessages.png)
 
