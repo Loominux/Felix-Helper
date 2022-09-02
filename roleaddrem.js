@@ -62,28 +62,35 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
 
 
-                //Check Roles from that category
+                if(typeof(roles[i][0].RoleID) != "undefined"){
+                    //Check Roles from that category
 
-                let x = 0;
+                    let x = 0;
 
-                for(let k = 1; k < roles[i].length; k++){
-                    if(interaction.member.roles.indexOf(roles[i][k].RoleID) != -1){
-                        x++;
+                    for(let k = 1; k < roles[i].length; k++){
+                        if(interaction.member.roles.indexOf(roles[i][k].RoleID) != -1){
+                            x++;
+                        }
                     }
+
+
+
+                    if(x == 0){
+                        await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
+                            return console.log(e);
+                        }); //Remove role from user
+                    }
+                    else if(x > 0){
+                        await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
+                            return console.log(e);
+                        }); //add role to user
+                    }
+
                 }
 
 
 
-                if(x == 0){
-                    await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
-                        return console.log(e);
-                    }); //Remove role from user
-                }
-                else if(x > 0){
-                    await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
-                        return console.log(e);
-                    }); //add role to user
-                }
+
 
                 }
             }
