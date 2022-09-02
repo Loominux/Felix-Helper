@@ -1,6 +1,9 @@
 const config = require("./config");
 module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
+    //if s is 1, role can be added
+    let add = 1;
+
     //go through all elements
     for(i in roles){
         for(j in roles[i]){
@@ -26,43 +29,61 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
                 //if the user already has the role remove it
                 if (interaction.member.roles.indexOf(roles[i][j].RoleID) != -1){
+
+                    add = 0;
+
+                    interaction.defer(64).then(()=>{
+                            interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " removed")
+                        }
+                    )
+
                     await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][j].RoleID).catch(function (e) {
                         return console.log(e);
                     }); //Remove Role from user
 
-
-                    //After removing check if any roles are left, if none are left remove the group role, start at 1, because 0 is just information
-                    let x = 0;
-                    for(let k = 1; k < roles[i].length; k++){
-                        if(interaction.member.roles.indexOf(roles[i][k].RoleID) != -1){
-                            x++;
-                        }
-
-                    }
-                    if(x == 1){
-                        await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
-                            return console.log(e);
-                        }); //Remove role from user
-                    }
                 }
-                //If the user does not have the role add it
-                else if(interaction.member.roles.indexOf(roles[i][j].RoleID) == -1){
 
-                    interaction.createMessage("Rolle hinzugefügt")
+
+
+
+                //If the user does not have the role add it
+                else if(interaction.member.roles.indexOf(roles[i][j].RoleID) == -1 && add==1){
+
+                    interaction.defer(64).then(()=>{
+                        interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " added")
+                        }
+                    )
 
                     await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][j].RoleID).catch(function (e) {
                         return console.log(e);
                     }); // add role to user
 
-                    //If the group has a Group role add it, skip all groups that don't have a role group
-                    if(typeof(roles[i][0].RoleID) != "undefined"){
-                        await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
-                            return console.log(e);
-                        }); // add role to user
+                    }
+
+
+
+                //Check Roles from that category
+
+                let x = 0;
+
+                for(let k = 1; k < roles[i].length; k++){
+                    if(interaction.member.roles.indexOf(roles[i][k].RoleID) != -1){
+                        x++;
                     }
                 }
-                return;
+
+                if(x == 0){
+                    await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
+                        return console.log(e);
+                    }); //Remove role from user
+                }
+                else if(x > 0){
+                    await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
+                        return console.log(e);
+                    }); //Remove role from user
+                }
+
+                }
             }
         }
-    }
 }

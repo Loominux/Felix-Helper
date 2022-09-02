@@ -68,9 +68,10 @@ bot.on("interactionCreate", async (interaction)=>{
 
             //selfroleinit(interaction.channel.id, bot, roles);
 
-           await interaction.createMessage("Generating Messages....").catch((e)=>{return console.log(e)});
-
-           console.log(interaction)
+            await interaction.defer(64).then(()=>{
+                    interaction.createMessage("Generating messages with reaction buttons")
+                }
+            ).catch((e)=>{return console.log(e)});
 
            selfroleinit(interaction.channel.id, bot, roles)
 
@@ -79,7 +80,6 @@ bot.on("interactionCreate", async (interaction)=>{
 
     if (interaction.data.custom_id){
         rolesaddrem(bot, interaction, roles, config)
-
     }
 
 })
