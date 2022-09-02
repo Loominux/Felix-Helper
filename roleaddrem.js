@@ -35,6 +35,13 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
                     //Check if the user has the Role that they have picked, if yes just remove it and set add to 0
                     if(interaction.member.roles.indexOf(roles[i][j].RoleID) != -1){
+
+                        //Message to user
+                        interaction.defer(64).then(()=>{
+                                interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " removed")
+                            }
+                        )
+
                         add = 0;
                     }
 
