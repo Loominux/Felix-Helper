@@ -51,7 +51,7 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
                 }
 
                 //Check if add is still 1 and if the user doesn't have the picked role, then it will be added
-                else if(interaction.member.roles.indexOf(roles[i][j].RoleID) == -1 && add==1){
+                if(interaction.member.roles.indexOf(roles[i][j].RoleID) == -1 && add==1){
 
                     //Message to user
                     interaction.defer(64).then(()=>{
