@@ -8,6 +8,10 @@ Here are examples what the Messages with Buttons looks like and what the Profile
 
 ![Messages](Pictures/MessagesButtons.png)
 
+![Selfroleinit](Pictures/Selfroleinit.png)
+
+![RoleMessages](Pictures/RoleMessages.png)
+
 
 ## Documentation i used
 
@@ -34,7 +38,7 @@ module.exports = {
     ApplicationID: "",  //The ApplicationID
     PublicKey: "",      //The Public Key
     initRole: "",       //ID of the Role that can use this Bot
-    guildID: ""
+    guildID: ""         //ID of the Server
 }
 ```
 

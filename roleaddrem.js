@@ -72,6 +72,8 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
                     }
                 }
 
+
+
                 if(x == 0){
                     await bot.removeGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
                         return console.log(e);
@@ -80,7 +82,7 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
                 else if(x > 0){
                     await bot.addGuildMemberRole(config.guildID, interaction.member.id, roles[i][0].RoleID).catch(function (e) {
                         return console.log(e);
-                    }); //Remove role from user
+                    }); //add role to user
                 }
 
                 }
