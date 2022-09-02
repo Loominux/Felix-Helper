@@ -12,7 +12,6 @@ Here are examples what the Messages with Buttons looks like and what the Profile
 ## Documentation i used
 
 - [Eris](https://abal.moe/Eris/)
-- [Slash Create](https://www.npmjs.com/package/slash-create)
 - [Discord Message Components](https://discord.com/developers/docs/interactions/message-components)
 - [Discord Embed Object](https://discord.com/developers/docs/resources/channel#embed-object)
 
@@ -22,7 +21,6 @@ Here are examples what the Messages with Buttons looks like and what the Profile
 
 ```
 npm install eris
-npm i slash-create
 ```
 
 ## Config File
@@ -32,10 +30,11 @@ This file is hidden in this Repository, because I don't want to share my API Tok
 You have to create an `config.js` file, here is an empty config files content:
 ```JS
 module.exports = {
-    Token: '',          //Your API Token
-    ApplicationID: '',  //The ApplicationID
-    PublicKey: '',      //The Public Key
-    initRole: ''        //ID of the Role that can use this Bot
+    Token: "",          //Your API Token
+    ApplicationID: "",  //The ApplicationID
+    PublicKey: "",      //The Public Key
+    initRole: "",       //ID of the Role that can use this Bot
+    guildID: ""
 }
 ```
 

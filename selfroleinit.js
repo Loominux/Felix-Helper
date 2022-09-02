@@ -1,6 +1,3 @@
-const RolesConstructor = require("./roles");
-
-
 module.exports = async function selfroleinit(ChannelID, bot, roles){
 
     //run all the code when someone sends 7selfroleinit
