@@ -11,6 +11,7 @@ Example of what roles and categories look like
 Reaction message from the Bot to you, after you used '/selfroleinit'
 
 ![Selfroleinit](Pictures/Selfroleinit.png)
+
 ![Messages](Pictures/MessagesButtons.png)
 
 Example of the messages from the Bot, after you changed your roles
