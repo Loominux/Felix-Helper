@@ -6,6 +6,10 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
     //go through all elements
     for(i in roles){
         for(j in roles[i]){
+
+            //i used this for the messages to the user, otherwise it doesn't work, don't ask why
+            let Role = roles[i][j]
+
             //if the Button is found we have to position in roles.js roles[i][j], skip 0 because that is the information element
             if(j != 0 && interaction.data.custom_id == "selfroles_" + i + "_" + roles[i][j].name) {
 
@@ -19,7 +23,7 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
                         //Message to user
                         interaction.defer(64).then(()=>{
-                                interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " removed")
+                                interaction.createMessage(`Role: <@&${Role.RoleID}> removed`)
                             }
                         )
 
@@ -35,14 +39,13 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
 
                     //Check if the user has the Role that they have picked, if yes just remove it and set add to 0
                     if(interaction.member.roles.indexOf(roles[i][j].RoleID) != -1){
+                        add = 0;
 
                         //Message to user
                         interaction.defer(64).then(()=>{
-                                interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " removed")
+                                interaction.createMessage(`Role: <@&${Role.RoleID}> removed`)
                             }
                         )
-
-                        add = 0;
                     }
 
                     //remove all roles from this category
@@ -58,11 +61,11 @@ module.exports = async function rolesaddrem(bot, interaction, roles, config){
                 }
 
                 //Check if add is still 1 and if the user doesn't have the picked role, then it will be added
-                if(interaction.member.roles.indexOf(roles[i][j].RoleID) == -1 && add==1){
+                if(add==1 && interaction.member.roles.indexOf(roles[i][j].RoleID) == -1){
 
                     //Message to user
                     interaction.defer(64).then(()=>{
-                        interaction.createMessage("Role: " + "<@&" + roles[i][j].RoleID + ">"+ " added")
+                        interaction.createMessage(`Role: <@&${Role.RoleID}> added`)
                         }
                     )
 

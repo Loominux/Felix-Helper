@@ -25,11 +25,6 @@ const bot = new Eris(config.Token, {intents: [
         "guildWebhooks"
     ]});
 
-
-
-
-
-
 //load roles from roles.js
 const RolesConstructor = require("./roles.js");
 const {Interaction} = require("eris");
