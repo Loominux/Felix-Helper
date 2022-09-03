@@ -1,8 +1,6 @@
 # This is my Discord bot to manage selfroles
 
-Special thanks to Inari, she introduced me to JavaScript and helped me a bit.
-
-Here are examples what the Messages with Buttons looks like and what the Profile will look like.
+Special thanks to Inari, she introduced me to JavaScript and helped me a lot.
 
 Example of what roles and categories look like 
 
@@ -48,31 +46,27 @@ module.exports = {
 }
 ```
 
-
-
-
-
 ## Roles
 
 All the contents and setting of the embeds and the buttons are in `role.js`, the file is in this repository and can be used as an example.
 
 ### Role Group
 
-Every group is an object array.
-Element 0 always contains the settings for the group, what the buttons and the Embed look like.
+Every category is an object array.
+Element 0 always contains the settings for the category, what the buttons and the Embed look like.
 The rest contains the role names, IDs and other stuff. 
 
-#### Group Settings
+#### Category Settings
 
 This Example here is from the `roles.js` that is in this Repository.
 
 - `title`: the title of the embed message for this group
-- `description`: the group description in the embed
+- `description`: the category description in the embed
 - `color`: the color of the embed message
 - `ShowRoles`: either true or false, when true it will list all the roles from this Group in the embed
 - `ShowEmotes`: buttons can have emotes, simply enable or disable them
 - `FieldName`: contains the name of the field used for the role listing
-- `AllowMultiple`: either true or false, when true users can have as many roles of the group at once as they desire, if false only one and cosing another role of this group will remove the old one  
+- `AllowMultiple`: either true or false, when true users can have as many roles of the category as they desire at once, if false only one role at one and choosing another role of this category will remove the other ones  
 
 #### Objects in Role group
 
