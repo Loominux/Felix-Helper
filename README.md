@@ -49,6 +49,9 @@ module.exports = {
 ```
 
 
+
+
+
 ## Roles
 
 All the contents and setting of the embeds and the buttons are in `role.js`, the file is in this repository and can be used as an example.
@@ -78,3 +81,32 @@ This Example here is from the `roles.js` that is in this Repository.
 - `EmoteName: ""`: contains the name of the Emote, in case of a normal Emote the name is just the Emote, if it is a custom emote is has to contain the Emote name
 - `EmoteID: ""`: only has to be used if `CustomEmote` is set to `true`, contains the ID of the custom emote
 - `CustomEmote: true/false`: Has to be used when using any emotes, set to `true` if you want to use Discord custom emotes, or to `false` when just default emotes are used.
+
+# Use as a systemd service
+
+Save this file as `felix-helper.service` in `/etc/systemd/system/`
+
+```
+[Unit]
+Description=felix-helper
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/node /home/user/path/to/felix-helper/main.js
+WorkingDirectory=/home/user/path/to/felix-helper/
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
+```
+| command                              | function                 |
+|--------------------------------------|--------------------------|
+| `sudo systemctl start felix-helper`  | start the Bot            |
+| `sudo systemctl stop felix-helper`   | stop the Bot             |
+| `sudo systemctl enable felix-helper` | enable start Bot on boot |
+| `sudo systemctl disable felix-helper` | disable start Bot on boot |
+
