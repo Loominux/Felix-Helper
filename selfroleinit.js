@@ -14,7 +14,7 @@ module.exports = async function selfroleinit(ChannelID, bot, roles){
                 {
                     name: "About the Bot",
                     value: "This Bot is created by <@292221048987058176>, feel free to send some feedback for better functionality or if you found a bug in <#824833759365955594>." +
-                        "\nThis bot is available as a GitLab Repository, if you are a curious Nerd you can check out the Code [here](https://gitlab.com/dev.paulweber/felix-helper)."
+                        "\nThis bot is available as a GitLab Repository, if you are a curious Nerd you can check out the Code [here](https://github.com/Loominux/Felix-Helper)."
                 }
             ],
             color: 0xbd93f9
